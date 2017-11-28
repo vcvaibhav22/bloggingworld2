@@ -1,0 +1,13 @@
+
+
+<div class="blog-content">
+  <h4 class="post-title"><a>{{post?.title}}</a></h4>
+  <p class="post-content">{{post?.content}}</p>
+
+  <pre class="post-footer">     Posted By:- {{post?.user}}                                                                Category:- {{post?.category}}                                                  </pre>
+</div>
+
+<div class="go-back-btn">
+  <button><a (click)="gotoAllBlogs()"> Go Back</a></button>
+</div>
+

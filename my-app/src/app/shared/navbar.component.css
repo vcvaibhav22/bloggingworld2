@@ -1,0 +1,19 @@
+
+.nav{
+  background-color: black;
+}
+
+.nav-link{
+  align-items: right;
+}
+
+.nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.nav a.active {
+  background-color: #4CAF50;
+  color: white;
+}

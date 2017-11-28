@@ -1,0 +1,120 @@
+
+<div class="topnav" id="myTopnav">
+  <a (click)="chooseMode('home')">Home</a>
+  <a class="nav-link" (click)=" chooseMode('all');getAllPosts();">All Blogs<span class="sr-only">(current)</span></a>
+  <a [routerLink]="['/admin/blog-admin']">Manage My Blogs</a>
+  <a *ngIf = "theUser" (click)="logout()">Logout</a>
+  <a *ngIf = "theUser" >Logged in User:-{{theUser}} </a>
+  <a>
+
+    <select style="color: dodgerblue;" [(ngModel)]="postCategory"  class="select-category"  (change)="chooseMode('choosenCategory')" name="myOptgroup">
+      <option disabled selected>Categories</option>
+      <option value="Sports">Sports</option>
+      <option value="Music">Music</option>
+      <option value="Politics">Politics</option>
+      <option value="Science">Science</option>
+      <option value="Others">Others</option>
+    </select>
+
+  </a>
+  <nav class="search-bar">
+    <form class="form-inline my-2 my-lg-0">
+      <input  [(ngModel)]="blogPosts2.title" [ngModelOptions]="{standalone: true}" (change)="chooseMode('searchResult')" class="form-control mr-sm-2" type="search" placeholder="Search by Title" aria-label="Search">
+      <button  (click)="getPostsByTitle(blogPosts2.title)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+</div>
+
+
+<div [ngSwitch]="menuChoice">
+  <div *ngSwitchCase="'choosenCategory'" ><br>
+
+    <div  class="all-blogs">
+
+      <div *ngFor="let posts of blogPosts">
+        <div *ngIf="posts.category == postCategory">
+
+          <div class="blog-content">
+            <h4 class="post-title"><a (click)="choosePost(posts)">{{posts.title}}</a></h4>
+            <p class="post-content">{{posts.content | slice:0:500}}...</p>
+
+            <pre class="post-footer">     Posted By:- {{posts.user}}                                                                Category:- {{posts.category}}                                                  Posted At:- {{posts.date | date:'dd-MM-yyyy hh-mm a'}}</pre>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <div *ngSwitchCase="'all'"><br>
+
+    <div class="all-blogs">
+
+      <div *ngFor="let posts of blogPosts">
+
+        <div class="blog-content">
+          <h4 class="post-title"><a (click)="choosePost(posts)">{{posts.title}}</a></h4>
+          <p class="post-content">{{posts.content | slice:0:500}}...</p>
+
+          <pre class="post-footer">     Posted By:- {{posts.user}}                                                                Category:- {{posts.category}}                                                  Posted At:- {{posts.date | date:'dd-MM-yyyy hh-mm a'}}</pre>
+        </div>
+        <hr>
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'searchResult'">
+    <div *ngFor="let posts of blogPosts2">
+
+      <div class="blog-content">
+        <h4 class="post-title"><a (click)="choosePost(posts)">{{posts.title}}</a></h4>
+        <p class="post-content">{{posts.content | slice:0:500}}...</p>
+
+        <pre class="post-footer">     Posted By:- {{posts.user}}                                                                Category:- {{posts.category}}                                                  Posted At:- {{posts.date | date:'dd-MM-yyyy hh-mm a'}}</pre>
+      </div>
+      <hr>
+
+    </div>
+  </div>
+
+
+  <div *ngSwitchCase="'home'">
+    <div>
+      <div>
+        <h1 class="welcome-user">Welcome {{theUser}} to the Blogging World.</h1>
+      </div>
+   <div>
+     <h4 class="welcome-user-help"> Here you can VIEW, ADD, EDIT & DELETE Blogs.</h4>
+   </div>
+      <div>
+        <h3 class="warning">This area is for authorized users only!</h3>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div *ngIf="singlePostChosen">
+
+  <div class="blog-content">
+    <h4 class="post-title"><a>{{singlePost.title}}</a></h4>
+    <p class="post-content">{{singlePost.content}}</p>
+
+    <pre class="post-footer">     Posted By:- {{singlePost.user}}                                                                Category:- {{singlePost.category}}                                                  Posted At:- {{singlePost.date | date:'dd-MM-yyyy hh-mm a'}}</pre>
+  </div>
+  <button class="go-back-btn" (click)="chooseMode('home')">Go Back</button>
+
+</div>
+
+
+
+

@@ -1,0 +1,40 @@
+
+
+.blog-content{
+  background-color: lime;
+  border: double;
+  border-color: red;
+  margin-top: 50px;
+  margin: 20px;
+
+
+}
+
+.post-title{
+  color: blue;
+  text-decoration: underline;
+  text-align: center;
+
+}
+.post-title a{
+  cursor: pointer;
+}
+
+.post-content{
+  text-align: left;
+  background-color: honeydew;
+}
+
+.post-footer{
+  text-align: left;
+}
+
+.go-back-btn{
+  margin-left: 45%;
+  margin-top: 30px;
+
+}
+
+.go-back-btn a{
+  cursor: pointer;
+}

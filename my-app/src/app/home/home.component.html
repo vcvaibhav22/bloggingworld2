@@ -1,0 +1,173 @@
+
+
+
+<div class="nav">
+
+  <nav class="navbar navbar-expand-lg ">
+    <a class="navbar-brand" href="#" (click)=" chooseMode('default')">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="chooseMode('help')" href="#">Help<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" (click)=" chooseMode('all');getAllPosts();" href="#">All Blogs<span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link"  href="#">
+
+              <select style="color: dodgerblue;" [(ngModel)]="postCategory"  class="select-category"  (change)="chooseMode('choosenCategory')" name="myOptgroup">
+                <option disabled selected>Categories</option>
+                <option value="Sports">Sports</option>
+                <option value="Music">Music</option>
+                <option value="Politics">Politics</option>
+                <option value="Science">Science</option>
+                <option value="Others">Others</option>
+              </select>
+
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<nav > <navi-bar></navi-bar>  </nav>
+
+
+  <nav class="search-bar">
+    <form class="form-inline my-2 my-lg-0">
+      <input  [(ngModel)]="blogPosts2.title" [ngModelOptions]="{standalone: true}" (change)="chooseMode('searchResult')" class="form-control mr-sm-2" type="search" placeholder="Search by Title" aria-label="Search">
+      <button  (click)="getPostsByTitle(blogPosts2.title)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div [ngSwitch]="menuChoice">
+  <div *ngSwitchCase="'choosenCategory'" ><br>
+
+    <div  class="all-blogs">
+
+      <div *ngFor="let posts of blogPosts">
+        <div *ngIf="posts.category == postCategory">
+
+          <div class="blog-content">
+            <h4 class="post-title"><a (click)="choosePost(posts)">{{posts.title}}</a></h4>
+            <p class="post-content">{{posts.content | slice:0:500}}...</p>
+
+            <pre class="post-footer">     Posted By:- {{posts.user}}                                                                Category:- {{posts.category}}                                                  Posted At:- {{posts.date | date:'dd-MM-yyyy hh-mm a'}}</pre>
+          </div>
+        <hr>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div *ngSwitchCase="'all'"><br>
+
+    <div class="all-blogs">
+
+    <div *ngFor="let posts of blogPosts">
+
+      <div class="blog-content">
+        <h4 class="post-title"><a (click)="choosePost(posts)">{{posts.title}}</a></h4>
+        <p class="post-content">{{posts.content | slice:0:500}}...</p>
+
+        <pre class="post-footer">     Posted By:- {{posts.user}}                                                                Category:- {{posts.category}}                                                  Posted At:- {{posts.date | date:'dd-MM-yyyy hh-mm a'}}</pre>
+      </div>
+      <hr>
+
+    </div>
+   </div>
+  </div>
+
+  <div *ngSwitchCase="'searchResult'">
+
+    <div *ngFor="let posts of blogPosts2">
+      <div class="search-blog">
+      <div class="blog-content">
+        <h4 class="post-title"><a (click)="choosePost(posts)">{{posts.title}}</a></h4>
+        <p class="post-content">{{posts.content | slice:0:500}}...</p>
+
+        <pre class="post-footer">     Posted By:- {{posts.user}}                                                                Category:- {{posts.category}}                                                  Posted At:- {{posts.date | date:'dd-MM-yyyy hh-mm a'}}</pre>
+      </div>
+      <hr>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div *ngSwitchCase="'help'" >
+
+  <pre class="help">
+          Click on 'All Blogs' to view all blogs.
+
+          Click on 'Categories' to view blogs of that category.
+
+          Click on Login to Start your own blog.
+
+          You can also Search blogs according to the title. Use the search bar provided on top right corner for same.
+
+          Thank You For Visiting the Blogging World.
+    </pre>
+  </div>
+
+
+
+  <div *ngSwitchDefault>
+    <h1 class="heading"> Welcome To Blogging World</h1>
+
+    <div class="about-blogging">
+    <h3>A Brief History of Blogging</h3>
+    <p>
+      Initially, blogging involved a personal web log, in which a person would journal about their day. From "web log" came the term "blog."
+
+      Like most new innovations on the Internet, many entrepreneurs saw a marketing potential in having a blog, and blogging took off from there. Not only can a blog be used for marketing, but also, a blog can be a home business in and of itself.
+
+     </p>
+     <h3> Blog Versus Website</h3>
+     <p> Many people are still confused over what constitutes a blog over a website. Part of the problem is that many businesses use both, integrating them into a single web presence. But there are two features of a blog that set it apart from a traditional website.
+     </p>
+      <pre>
+      1. Blogs are updated frequently. Whether it's a mommy blog in which a woman shares adventures in parenting, a food blog sharing new recipes, or a business providing updates to its
+         services, blogs have new content added several times a week.
+      2. Blogs allow for reader engagement. Blogs are often included in social media because of the ability for readers to comment and have a discussion with the blogger and others who
+         read the blog makes it social.      </pre>
+      <h3>Why Blogging Is So Popular?</h3>
+    <pre>There are several reasons why entrepreneurs have turned to blogging.
+
+      1. Search engines love new content, and as a result, blogging is a great search engine optimization (SEO) tool.
+      2. Blogging provides an easy way to keep your customers and clients up-to-date on what's going on, let them know about new deals, and provide tips. The more a customer comes to your
+         blog, the more likely they are to spend money.
+      3. A blog allows you to build trust and rapport with your prospects. Not only can you show off what you know, b uilding your expertise and credibility, but because people can post
+         comments and interact with you, they can get to know you, and hopefully, will trust you enough to buy from you.
+
+      Blogs can make money. Along with your product or service, blogs can generate income from other options, such as advertising and affiliate products.</pre>
+    </div>
+  </div>
+
+
+
+
+
+
+

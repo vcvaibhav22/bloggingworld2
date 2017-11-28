@@ -1,0 +1,56 @@
+
+.signup{
+  margin-left: 35%;
+  margin-top: 50px;
+  height: 650px;
+  width: 550px;
+  text-align: center;
+  border: double;
+  border-color: black;
+  background-color: lightgray;
+}
+
+.signup-header1{
+  margin-top: 30px;
+  margin-left: 1px;
+  color: black;
+  background-color: blue;
+}
+
+.signup-header2{
+  margin-top: 30px;
+  margin-left: 105px;
+  color: black;
+  background-color: blue;
+}
+
+.signup-email-div{
+  margin-top: 120px;
+  margin-left: 115px;
+}
+
+.signup-username-div{
+  margin-top: 10px;
+  margin-left: -70px;
+}
+
+.signup-password-div{
+  margin-top: 10px;
+  margin-left: -65px;
+}
+
+.signup-confirm-div{
+  margin-top: 10px;
+  margin-left: -56px;
+}
+.signup-signup{
+  margin-top: 50px;
+  background-color: limegreen;
+  color: white;
+  cursor: pointer;
+}
+.signup-cancel{
+    background-color: orangered;
+  color: white;
+  cursor: pointer;
+}

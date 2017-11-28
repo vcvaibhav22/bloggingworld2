@@ -1,0 +1,65 @@
+.simlink:hover {
+  color: #0000ff;
+  cursor: pointer;
+}
+.login{
+  margin-left: 35%;
+  margin-top: 50px;
+  height: 600px;
+  width: 450px;
+  text-align: center;
+  border: double;
+  border-color: black;
+  background-color: lightgray;
+
+}
+
+.login-header{
+  margin-top: 30px;
+  margin-left: 25px;
+  color: black;
+  background-color: blue;
+}
+
+.login-img{
+  margin-top: 30px;
+  margin-left: 160px;
+}
+
+.email-div{
+  margin-top: 80px;
+  margin-left: 120px;
+}
+
+.password-div{
+  margin-top: 20px;
+  margin-left: 95px;
+
+}
+
+.login-btn{
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
+.signup-btn{
+  background-color: limegreen;
+  color: white;
+  cursor: pointer;
+}
+
+.both-btn{
+  margin-top: 15px;
+  margin-left: 115px;
+
+}
+
+.back-btn{
+   margin-top: 10px;
+  margin-left: 148px;
+
+
+}
+
+

@@ -1,0 +1,86 @@
+.all-blogs {
+ text-align: center;
+  margin: 20px;
+}
+
+.heading{
+  background-color: orangered;
+  text-align: center;
+}
+
+.blog-content{
+  background-color: lime;
+  border: double;
+  border-color: red;
+  margin: 5px;
+}
+
+.post-title{
+  color: blue;
+  text-decoration: underline;
+  text-align: center;
+
+}
+.post-title a{
+  cursor: pointer;
+}
+
+.post-content{
+  text-align: left;
+  background-color: honeydew;
+}
+
+.post-footer{
+ text-align: left;
+}
+
+
+.nav{
+  background-color: black;
+  font-size: large;
+
+}
+
+.select-category{
+  background-color: black;
+  border-color: black;
+}
+
+.search-bar{
+  margin-left: 48%;
+}
+
+.nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.nav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.help{
+  color: red;
+  font-size: large;
+  margin-top: 100px;
+  text-align: center;
+
+}
+
+
+h3{
+  color: lightcoral;
+  text-align: center;
+}
+
+.about-blogging{
+  margin: 20px;
+  border: double;
+  border-color: blue;
+}
+
+.search-blog{
+  margin: 20px;
+}

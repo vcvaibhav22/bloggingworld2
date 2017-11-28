@@ -1,0 +1,79 @@
+<div>
+<div class="topnav" id="myTopnav">
+  <a (click)="chooseMode('add')">Add Post</a>
+  <a *ngIf = "menuChoice" (click)="chooseMode('')">Manage My Blogs</a>
+  <a [routerLink]="['/admin']">Back to Admin</a>
+  <a *ngIf = "theUser"(click)="logout()">Logout</a>
+  <a *ngIf = "theUser">Logged in User:- {{theUser}}</a>
+</div>
+
+
+<div [ngSwitch]="menuChoice">
+  <div *ngSwitchCase="'add'"><add-menu></add-menu></div>
+  <div *ngSwitchDefault>
+
+    <div *ngIf = "formDisplay" class="list-blogs">
+      <div *ngFor="let posts of blogPosts">
+
+        <div >
+          <div class="blog-content">
+            <h4 class="post-title"><a>{{posts.title}}</a></h4>
+            <p class="post-content">{{posts.content | slice:0:400}}...</p>
+
+            <pre class="post-footer">     Category:- {{posts.category}}                                                                                                                   Posted At:- {{posts.date | date:'dd-MM-yyyy hh-mm a'}}</pre>
+          </div>
+          <div >
+              <button class="edit-button"> <a  (click)="editPost(posts)" >Edit</a></button>
+                <button class="delete-button"> <a  (click)="deletePost(posts)">Delete</a></button>
+            <hr>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div *ngIf = "!formDisplay" class="row">
+
+      <form >
+        <div >
+          <div><h3 class="edit-post-header">Edit Post</h3></div>
+        </div>
+
+        <div class="edit-post-title-div">
+          <div>
+            <h4 class="edit-post-title">Post Title</h4>
+              <textarea type="text" rows="2" cols="150" [(ngModel)]="singlePost.title"
+                      name="editTitle" required #psTitle="ngModel"></textarea>
+
+          </div>
+        </div>
+
+        <div class="edit-Post-content-div">
+          <div >
+            <h4 class="edit-post-content">Post Content</h4>
+              <textarea  id="content" rows="15" cols="150" [(ngModel)]="singlePost.content"
+                        name="editcontent" required #psContent="ngModel"></textarea>
+
+          </div>
+
+        </div>
+
+        <div class="row align-center">
+          <div class="small-12 columns">
+            <div class="expanded button-group">
+              <button class="success-button " type="button"
+                      (click)="updatePost(singlePost)">Update Post</button>
+              <button class="cancel-button" type="button" (click)="cancelEdit()">Cancel Edit</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+</div>

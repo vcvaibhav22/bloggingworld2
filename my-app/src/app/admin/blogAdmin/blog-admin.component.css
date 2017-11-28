@@ -1,0 +1,103 @@
+.blog-content{
+  background-color: lime;
+  border: double;
+  border-color: red;
+  margin: 20px;
+}
+
+.post-title{
+  color: blue;
+  text-decoration: underline;
+  text-align: center;
+
+}
+.post-title a{
+  cursor: pointer;
+}
+
+.post-content{
+  text-align: left;
+  background-color: honeydew;
+}
+
+.post-footer{
+  text-align: left;
+}
+
+
+.list-blogs{
+  text-align: center;
+}
+
+.row{
+
+  padding-left:30px ;
+}
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: black;
+  overflow: hidden;
+  color: dodgerblue;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: dodgerblue;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.edit-post-header{
+  color: red;
+  text-align: center;
+}
+
+.edit-post-title{
+  color: dodgerblue;
+}
+.edit-post-title-div{
+ text-align: left;
+}
+
+.edit-post-content{
+  color: dodgerblue;
+}
+.success-button{
+  background-color: limegreen;
+  color: white;
+}
+
+.cancel-button{
+  background-color: red;
+  color: white;
+}
+
+.edit-button{
+  background-color: limegreen;
+  color: white;
+}
+
+.delete-button{
+  background-color: red;
+  color: white;
+}
+body{
+  min-height: 800px;
+}

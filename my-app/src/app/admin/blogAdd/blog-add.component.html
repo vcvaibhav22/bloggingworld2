@@ -1,0 +1,65 @@
+
+<div>
+<form class="add-form">
+  <div>
+    <div>
+      <div><h3 class="add-post-header">Add a Post</h3></div>
+    </div>
+  </div>
+  <div class="add-post-title-div">
+    <div >
+      <h4 class="add-post-title">Post Title</h4>
+      <textarea type="text" rows="2" cols="130" [(ngModel)]="postTitle" name="postTitle" required #psTitle="ngModel"></textarea>
+    </div>
+  </div>
+
+
+  <div class="add-Post-content-div">
+    <div>
+      <h4 class="add-post-content">Post Content</h4>
+        <textarea rows="10" cols="130" id="content" [(ngModel)]="content" name="content" required #psContent="ngModel">
+            </textarea>
+
+    </div>
+  </div>
+
+
+  <div>
+    <p>Please choose a category for your blog
+      <select [(ngModel)]="postCategory" name="myOptgroup">
+
+        <option value="Sports">Sports</option>
+        <option value="Music">Music</option>
+        <option value="Politics">Politics</option>
+        <option value="Science">Science</option>
+        <option value="Others">Others</option>
+      </select>
+    </p>
+  </div>
+
+  <h1>{{postCategory}}</h1>
+
+  <div>
+    <p>{{postDate | date:'dd-MM-yyyy'}}</p>
+  </div>
+
+  <div>
+    <p>{{postTime | date:'hh-mm a'}}</p>
+  </div>
+
+
+
+
+  <div class="row align-center">
+    <div class="small-12 columns">
+      <div class="expanded button-group">
+        <button class="success-button " type="button"
+                (click)="createPost()">Create Post</button>
+        <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+</form>
+</div>
+
